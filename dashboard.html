@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | StudyLens</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body class="dashboard-body">
+
+
+    <!-- DASHBOARD SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <a href="index.html" class="logo dashboard-logo">
+            <i data-lucide="book-open"></i>
+            <span>StudyLens</span>
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="sidebar-label">MENU</p>
+
+            <a href="dashboard.html" class="sidebar-link active">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#materials" class="sidebar-link">
+                <i data-lucide="folder"></i>
+                <span>My Materials</span>
+            </a>
+
+            <a href="#assistant" class="sidebar-link">
+                <i data-lucide="message-circle"></i>
+                <span>Study Assistant</span>
+            </a>
+
+            <a href="#quizzes" class="sidebar-link">
+                <i data-lucide="trophy"></i>
+                <span>Quizzes</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="sidebar-link">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+           <a href="#" class="sidebar-link" id="logoutBtn">
+    <i data-lucide="log-out"></i>
+    <span>Log out</span>
+           </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="dashboard-header">
+
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="header-spacer"></div>
+
+            <button class="notification-btn" aria-label="Notifications">
+                <i data-lucide="bell"></i>
+            </button>
+
+            <div class="profile-avatar">
+                A
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME SECTION -->
+
+        <section class="welcome-section">
+
+            <h1>Welcome back, <span id="userName">Student</span>!</h1>
+
+            <p>Keep going, you're doing great!</p>
+
+        </section>
+
+
+        <!-- UPLOAD SECTION -->
+
+        <section class="upload-section">
+
+            <div class="upload-content">
+
+                <div class="upload-icon">
+                    <i data-lucide="cloud-upload"></i>
+                </div>
+
+                <h2>Upload Your Study Materials</h2>
+
+                <p>Drag and drop your PDFs here, or click to browse.</p>
+
+                <input type="file" id="fileInput" accept=".pdf,application/pdf" hidden>
+
+                <button class="btn btn-primary" id="chooseFile">
+                    Choose File
+                </button>
+
+                <p class="upload-note">PDF files only</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- MY STUDY MATERIALS -->
+
+        <section class="materials-section" id="materials">
+
+            <div class="section-title-row">
+
+                <div>
+                    <h2>Your Study Materials</h2>
+                    <p>Access your uploaded lecture notes.</p>
+                </div>
+
+                <a href="#materials" class="view-all">
+                    View all
+                    <i data-lucide="arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="materials-list" id="materialsList">
+
+                <div class="empty-materials" id="emptyMaterials">
+
+                    <i data-lucide="file-text"></i>
+
+                    <h3>No materials uploaded yet</h3>
+
+                    <p>Your uploaded PDFs will appear here.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI ASSISTANT -->
+
+        <section class="assistant-section" id="assistant">
+
+            <div class="assistant-heading">
+
+                <div class="assistant-icon">
+                    <i data-lucide="message-circle"></i>
+                </div>
+
+                <div>
+                    <h2>AI Study Assistant</h2>
+                    <p>Ask questions about your uploaded materials.</p>
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages">
+
+                <div class="assistant-welcome">
+
+                    <p>
+                        Hello! I'm your StudyLens assistant.
+                        Upload your study materials and ask me
+                        questions to get started.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form class="chat-form" id="chatForm">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type your question here..."
+                    autocomplete="off"
+                >
+
+                <button type="submit" aria-label="Send message">
+                    <i data-lucide="send"></i>
+                </button>
+
+            </form>
+
+            <p class="chat-note">
+                AI responses will be based on your uploaded materials.
+            </p>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <section class="quick-actions" id="quizzes">
+
+            <h2>Quick Actions</h2>
+
+            <div class="quick-actions-grid">
+
+                <button class="quick-action-card" id="generateQuiz">
+
+                    <i data-lucide="trophy"></i>
+
+                    <span>Generate Quiz</span>
+
+                </button>
+
+
+                <a href="#materials" class="quick-action-card">
+
+                    <i data-lucide="file-text"></i>
+
+                    <span>View Materials</span>
+
+                </a>
+
+
+                <button class="quick-action-card" id="trackProgress">
+
+                    <i data-lucide="chart-no-axes-column-increasing"></i>
+
+                    <span>Track Progress</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <p>© 2026 StudyLens. All rights reserved.</p>
+
+        </footer>
+
+
+    </main>
+
+
+    <script type="module" src="dashboard.js"></script>
+    <script type="module" src="dashboard-auth.js"></script>
+    
+
+</body>
+
+</html>
